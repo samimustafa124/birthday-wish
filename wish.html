@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday in Advance to My Fiancé!</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Bubbly & Script Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;800&family=Pacifico&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Tone.js for celebratory sound effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+
+    <style>
+        :root {
+            --font-bubbly: 'Fredoka', cursive, sans-serif;
+            --font-script: 'Pacifico', cursive;
+            --font-body: 'Quicksand', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background: radial-gradient(circle at 50% 35%, #58357a 0%, #311b47 60%, #1c0f2b 100%);
+            min-height: 100vh;
+            user-select: none;
+        }
+
+        /* Custom Bubbly 3D Rainbow Text */
+        .bubbly-title {
+            font-family: var(--font-bubbly);
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #ff7eb3, #ffb86c, #f1fa8c, #50fa7b, #8be9fd, #bd93f9, #ff79c6);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0px 4px 0px #231130) 
+                    drop-shadow(0px 6px 12px rgba(255, 121, 198, 0.45));
+            animation: rainbowShift 5s linear infinite, floatSlow 3.5s ease-in-out infinite;
+        }
+
+        .script-subtitle {
+            font-family: var(--font-script);
+            color: #fff3b0;
+            text-shadow: 0 3px 0 #3d1e54, 0 0 18px rgba(255, 214, 102, 0.8);
+            animation: pulseGlow 2.5s ease-in-out infinite alternate;
+        }
+
+        /* Keyframe Animations */
+        @keyframes rainbowShift {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(-0.5deg); }
+            50% { transform: translateY(-8px) rotate(0.5deg); }
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); text-shadow: 0 3px 0 #3d1e54, 0 0 12px rgba(255, 214, 102, 0.6); }
+            100% { transform: scale(1.03); text-shadow: 0 3px 0 #3d1e54, 0 0 25px rgba(255, 230, 140, 1); }
+        }
+
+        /* Bear Bouncing Animations */
+        .bubu-bounce {
+            animation: bearBounceLeft 2.2s ease-in-out infinite;
+            transform-origin: bottom center;
+        }
+
+        .dudu-bounce {
+            animation: bearBounceRight 2.2s ease-in-out infinite 0.3s;
+            transform-origin: bottom center;
+        }
+
+        @keyframes bearBounceLeft {
+            0%, 100% { transform: translateY(0) rotate(-1.5deg) scaleY(1); }
+            45% { transform: translateY(-12px) rotate(2deg) scaleY(1.03); }
+            55% { transform: translateY(-12px) rotate(2deg) scaleY(1.03); }
+            85% { transform: translateY(2px) rotate(-1deg) scaleY(0.97); }
+        }
+
+        @keyframes bearBounceRight {
+            0%, 100% { transform: translateY(0) rotate(1.5deg) scaleY(1); }
+            45% { transform: translateY(-10px) rotate(-2deg) scaleY(1.03); }
+            55% { transform: translateY(-10px) rotate(-2deg) scaleY(1.03); }
+            85% { transform: translateY(2px) rotate(1deg) scaleY(0.97); }
+        }
+
+        /* Arm Wave Animation */
+        .wave-left {
+            animation: waveArmLeft 1.4s ease-in-out infinite alternate;
+            transform-origin: 85px 210px;
+        }
+        .wave-right {
+            animation: waveArmRight 1.4s ease-in-out infinite alternate;
+            transform-origin: 215px 210px;
+        }
+
+        @keyframes waveArmLeft {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-18deg); }
+        }
+        @keyframes waveArmRight {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(18deg); }
+        }
+
+        /* Candle Flame Flicker */
+        .flame-flicker {
+            animation: flicker 0.4s ease-in-out infinite alternate;
+            transform-origin: center bottom;
+        }
+
+        @keyframes flicker {
+            0% { transform: scale(1) rotate(-3deg); opacity: 0.95; }
+            50% { transform: scale(1.12, 0.92) rotate(2deg); opacity: 1; }
+            100% { transform: scale(0.94, 1.08) rotate(-1deg); opacity: 0.9; }
+        }
+
+        /* Smoke rise when candle is blown out */
+        .smoke-particle {
+            animation: smokeRise 2s ease-out forwards;
+        }
+        @keyframes smokeRise {
+            0% { opacity: 0.8; transform: translateY(0) scale(0.6); }
+            100% { opacity: 0; transform: translateY(-45px) translateX(12px) scale(2); }
+        }
+
+        /* Fairy Lights Twinkle */
+        .fairy-bulb {
+            animation: twinkle 1.6s infinite alternate ease-in-out;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.45; transform: scale(0.85); filter: drop-shadow(0 0 4px #ffd166); }
+            100% { opacity: 1; transform: scale(1.2); filter: drop-shadow(0 0 14px #fff3b0); }
+        }
+
+        /* Floating Balloons */
+        .balloon-float-1 { animation: floatBalloon 4.5s ease-in-out infinite; }
+        .balloon-float-2 { animation: floatBalloon 5.2s ease-in-out infinite 0.7s; }
+        .balloon-float-3 { animation: floatBalloon 4.8s ease-in-out infinite 1.4s; }
+
+        @keyframes floatBalloon {
+            0%, 100% { transform: translateY(0px) rotate(-2deg); }
+            50% { transform: translateY(-16px) rotate(3deg); }
+        }
+
+        /* Ribbon Banner Styling */
+        .ribbon-banner {
+            background: linear-gradient(135deg, #ff85a1 0%, #ff9ebb 50%, #ff7597 100%);
+            border: 4px solid #3c1642;
+            box-shadow: 0 8px 0 #3c1642, 0 12px 25px rgba(0,0,0,0.45);
+        }
+
+        .countdown-digits {
+            font-family: var(--font-bubbly);
+            text-shadow: 2px 3px 0px #3c1642;
+        }
+
+        /* Game-style 3D Button */
+        .party-btn {
+            font-family: var(--font-bubbly);
+            background: linear-gradient(180deg, #ffcf56 0%, #ff9f1c 100%);
+            border: 3px solid #3c1642;
+            box-shadow: 0 6px 0 #3c1642, 0 10px 20px rgba(255, 159, 28, 0.4);
+            transition: all 0.15s ease;
+        }
+        .party-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 #3c1642, 0 14px 25px rgba(255, 159, 28, 0.6);
+            background: linear-gradient(180deg, #ffe07d 0%, #ffad33 100%);
+        }
+        .party-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #3c1642, 0 4px 10px rgba(255, 159, 28, 0.4);
+        }
+
+        .secondary-btn {
+            font-family: var(--font-bubbly);
+            background: linear-gradient(180deg, #a8dadc 0%, #457b9d 100%);
+            border: 3px solid #3c1642;
+            box-shadow: 0 6px 0 #3c1642;
+            transition: all 0.15s ease;
+        }
+        .secondary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 #3c1642;
+        }
+        .secondary-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #3c1642;
+        }
+
+        /* Floating Hearts & Notes Effect */
+        .floating-emoji {
+            position: fixed;
+            pointer-events: none;
+            z-index: 60;
+            animation: floatUpAndFade 2.6s cubic-bezier(0.2, 0.8, 0.4, 1) forwards;
+        }
+
+        @keyframes floatUpAndFade {
+            0% { transform: translateY(0) scale(0.5) rotate(0deg); opacity: 1; }
+            60% { opacity: 1; }
+            100% { transform: translateY(-240px) scale(1.5) rotate(20deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="relative flex flex-col items-center justify-between min-h-screen py-4 px-3 sm:px-6 overflow-hidden">
+
+    <!-- Background Continuous Confetti Canvas -->
+    <canvas id="confettiCanvas" class="fixed inset-0 pointer-events-none z-20"></canvas>
+
+    <!-- Top Bunting Flags & Twinkling Fairy Lights -->
+    <div class="w-full max-w-4xl relative z-10 pointer-events-none -mt-4">
+        <svg viewBox="0 0 900 130" class="w-full h-auto overflow-visible">
+            <!-- Glowing Fairy Light Strings -->
+            <path d="M-20,10 Q225,95 450,25 Q675,95 920,10" fill="none" stroke="#5e3a78" stroke-width="2.5"/>
+            <path d="M-20,35 Q200,120 450,55 Q700,120 920,35" fill="none" stroke="#5e3a78" stroke-width="2"/>
+
+            <!-- Bunting Pennants Left -->
+            <g stroke="#3c1642" stroke-width="3" stroke-linejoin="round">
+                <polygon points="10,14 60,26 28,75" fill="#7bdff2"/>
+                <polygon points="70,28 120,38 92,88" fill="#ff758f"/>
+                <polygon points="130,40 180,46 155,95" fill="#ffd166"/>
+                <polygon points="190,48 240,50 218,98" fill="#b8f2e6"/>
+                <polygon points="250,50 300,46 278,94" fill="#cdb4db"/>
+                <polygon points="310,45 360,38 338,85" fill="#ff9ebb"/>
+                
+                <!-- Center Bunting -->
+                <polygon points="370,36 420,28 398,75" fill="#ffd166"/>
+                <polygon points="480,28 530,36 502,75" fill="#7bdff2"/>
+
+                <!-- Bunting Pennants Right -->
+                <polygon points="540,38 590,45 562,85" fill="#ff758f"/>
+                <polygon points="600,46 650,50 622,94" fill="#b8f2e6"/>
+                <polygon points="660,50 710,48 682,98" fill="#ffd166"/>
+                <polygon points="720,46 770,40 745,95" fill="#cdb4db"/>
+                <polygon points="780,38 830,28 808,88" fill="#ff9ebb"/>
+                <polygon points="840,26 890,14 872,75" fill="#7bdff2"/>
+            </g>
+
+            <!-- Twinkling Fairy Bulbs -->
+            <g>
+                <circle cx="55" cy="52" r="7" fill="#fff3b0" class="fairy-bulb" style="animation-delay: 0.1s"/>
+                <circle cx="135" cy="72" r="8" fill="#ffd166" class="fairy-bulb" style="animation-delay: 0.5s"/>
+                <circle cx="220" cy="84" r="7" fill="#fff3b0" class="fairy-bulb" style="animation-delay: 0.9s"/>
+                <circle cx="315" cy="78" r="8" fill="#ffd166" class="fairy-bulb" style="animation-delay: 0.3s"/>
+                <circle cx="400" cy="64" r="7" fill="#fff3b0" class="fairy-bulb" style="animation-delay: 1.1s"/>
+                <circle cx="450" cy="55" r="9" fill="#ffd166" class="fairy-bulb" style="animation-delay: 0.2s"/>
+                <circle cx="500" cy="64" r="7" fill="#fff3b0" class="fairy-bulb" style="animation-delay: 0.7s"/>
+                <circle cx="585" cy="78" r="8" fill="#ffd166" class="fairy-bulb" style="animation-delay: 1.3s"/>
+                <circle cx="680" cy="84" r="7" fill="#fff3b0" class="fairy-bulb" style="animation-delay: 0.4s"/>
+                <circle cx="765" cy="72" r="8" fill="#ffd166" class="fairy-bulb" style="animation-delay: 0.8s"/>
+                <circle cx="845" cy="52" r="7" fill="#fff3b0" class="fairy-bulb" style="animation-delay: 1.0s"/>
+            </g>
+        </svg>
+    </div>
+
+    <!-- Main Poster Container -->
+    <main class="relative z-10 w-full max-w-3xl flex flex-col items-center text-center my-auto">
+
+        <!-- Title Banner -->
+        <header class="mb-1 sm:mb-3 px-2">
+            <h1 class="bubbly-title text-3xl sm:text-5xl md:text-6xl leading-tight tracking-wide">
+                HAPPY BIRTHDAY<br/>IN ADVANCE
+            </h1>
+            <p class="script-subtitle text-2xl sm:text-4xl md:text-5xl mt-1 sm:mt-2">
+                to my fiancé 💕
+            </p>
+        </header>
+
+        <!-- Central Poster Illustration (SVG Scene: Balloons, Gifts, Bubu, Dudu, Cake, Table) -->
+        <div class="relative w-full max-w-2xl -my-2 sm:-my-4 flex justify-center items-center">
+            <svg viewBox="0 0 800 540" class="w-full h-auto drop-shadow-2xl overflow-visible" id="posterSvg">
+                <defs>
+                    <!-- Soft Glow Filter -->
+                    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+                        <feGaussianBlur stdDeviation="8" result="blur" />
+                        <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                    </filter>
+                    <!-- Balloon Gradients -->
+                    <radialGradient id="pinkBalloon" cx="35%" cy="30%" r="65%">
+                        <stop offset="0%" stop-color="#ffc2d4"/>
+                        <stop offset="55%" stop-color="#ff7597"/>
+                        <stop offset="100%" stop-color="#d9386a"/>
+                    </radialGradient>
+                    <radialGradient id="yellowBalloon" cx="35%" cy="30%" r="65%">
+                        <stop offset="0%" stop-color="#fff3b0"/>
+                        <stop offset="60%" stop-color="#ffd166"/>
+                        <stop offset="100%" stop-color="#e09f1f"/>
+                    </radialGradient>
+                    <radialGradient id="blueBalloon" cx="35%" cy="30%" r="65%">
+                        <stop offset="0%" stop-color="#caf0f8"/>
+                        <stop offset="60%" stop-color="#7bdff2"/>
+                        <stop offset="100%" stop-color="#3a9ebd"/>
+                    </radialGradient>
+                    <radialGradient id="purpleBalloon" cx="35%" cy="30%" r="65%">
+                        <stop offset="0%" stop-color="#f3d5ff"/>
+                        <stop offset="60%" stop-color="#cdb4db"/>
+                        <stop offset="100%" stop-color="#8e65ab"/>
+                    </radialGradient>
+                </defs>
+
+                <!-- Ambient Backlight Behind Bears -->
+                <circle cx="400" cy="280" r="210" fill="#ff9ebb" opacity="0.14" filter="url(#glow)"/>
+                <circle cx="400" cy="270" r="140" fill="#ffd166" opacity="0.12" filter="url(#glow)"/>
+
+                <!-- ================= LEFT BALLOONS ================= -->
+                <g class="balloon-float-1">
+                    <path d="M90,230 Q105,310 120,390" fill="none" stroke="#e2cfea" stroke-width="2"/>
+                    <path d="M135,190 Q135,290 135,390" fill="none" stroke="#e2cfea" stroke-width="2"/>
+                    <path d="M55,260 Q85,330 110,390" fill="none" stroke="#e2cfea" stroke-width="2"/>
+                    <!-- Blue Balloon -->
+                    <ellipse cx="65" cy="195" rx="42" ry="50" fill="url(#blueBalloon)" stroke="#3c1642" stroke-width="3.5"/>
+                    <!-- Yellow Balloon -->
+                    <ellipse cx="130" cy="145" rx="46" ry="55" fill="url(#yellowBalloon)" stroke="#3c1642" stroke-width="3.5"/>
+                    <ellipse cx="114" cy="126" rx="10" ry="18" fill="#ffffff" opacity="0.45" transform="rotate(-20 114 126)"/>
+                    <!-- Pink Balloon -->
+                    <ellipse cx="75" cy="235" rx="44" ry="52" fill="url(#pinkBalloon)" stroke="#3c1642" stroke-width="3.5"/>
+                    <ellipse cx="60" cy="218" rx="9" ry="16" fill="#ffffff" opacity="0.45" transform="rotate(-20 60 218)"/>
+                </g>
+
+                <!-- ================= RIGHT BALLOONS ================= -->
+                <g class="balloon-float-2">
+                    <path d="M710,230 Q695,310 680,390" fill="none" stroke="#e2cfea" stroke-width="2"/>
+                    <path d="M665,190 Q665,290 665,390" fill="none" stroke="#e2cfea" stroke-width="2"/>
+                    <path d="M745,260 Q715,330 690,390" fill="none" stroke="#e2cfea" stroke-width="2"/>
+                    <!-- Blue Balloon -->
+                    <ellipse cx="725" cy="150" rx="46" ry="54" fill="url(#blueBalloon)" stroke="#3c1642" stroke-width="3.5"/>
+                    <ellipse cx="710" cy="132" rx="9" ry="16" fill="#ffffff" opacity="0.45" transform="rotate(-20 710 132)"/>
+                    <!-- Yellow Balloon -->
+                    <ellipse cx="665" cy="185" rx="44" ry="52" fill="url(#yellowBalloon)" stroke="#3c1642" stroke-width="3.5"/>
+                    <ellipse cx="650" cy="168" rx="8" ry="15" fill="#ffffff" opacity="0.45" transform="rotate(-20 650 168)"/>
+                    <!-- Purple Balloon -->
+                    <ellipse cx="735" cy="235" rx="43" ry="50" fill="url(#purpleBalloon)" stroke="#3c1642" stroke-width="3.5"/>
+                    <ellipse cx="720" cy="218" rx="8" ry="14" fill="#ffffff" opacity="0.45" transform="rotate(-20 720 218)"/>
+                </g>
+
+                <!-- ================= BUBU (WHITE PANDA-LIKE BEAR - LEFT) ================= -->
+                <g class="bubu-bounce" id="bubuBear" cursor="pointer">
+                    <g transform="translate(135, 110)">
+                        <!-- Left & Right Dark Panda Ears -->
+                        <circle cx="48" cy="95" r="24" fill="#4a2511" stroke="#3c1642" stroke-width="4"/>
+                        <circle cx="192" cy="88" r="24" fill="#4a2511" stroke="#3c1642" stroke-width="4"/>
+
+                        <!-- Body -->
+                        <path d="M62,210 C45,260 52,320 65,335 L180,335 C192,320 195,260 178,210 Z" fill="#ffffff" stroke="#3c1642" stroke-width="4"/>
+                        <!-- Soft Pink Belly Shadow -->
+                        <ellipse cx="122" cy="280" rx="45" ry="40" fill="#fce8ef" opacity="0.6"/>
+
+                        <!-- Waving Left Arm holding Party Popper -->
+                        <g class="wave-left">
+                            <path d="M68,220 C30,200 18,175 28,162 C38,150 62,175 82,202" fill="#ffffff" stroke="#3c1642" stroke-width="4" stroke-linecap="round"/>
+                            <!-- Party Streamer Ribbon in hand -->
+                            <path d="M25,160 Q5,135 28,118" fill="none" stroke="#7bdff2" stroke-width="5" stroke-linecap="round"/>
+                            <path d="M25,160 Q-5,155 10,130" fill="none" stroke="#ff758f" stroke-width="5" stroke-linecap="round"/>
+                        </g>
+
+                        <!-- Waving Right Arm -->
+                        <g class="wave-right">
+                            <path d="M175,220 C205,198 222,175 212,162 C202,150 180,175 162,202" fill="#ffffff" stroke="#3c1642" stroke-width="4" stroke-linecap="round"/>
+                        </g>
+
+                        <!-- Big Chubby White Head -->
+                        <ellipse cx="120" cy="148" rx="92" ry="76" fill="#ffffff" stroke="#3c1642" stroke-width="4"/>
+
+                        <!-- Cute Rosy Cheeks -->
+                        <ellipse cx="56" cy="166" rx="18" ry="13" fill="#ff9ebb" opacity="0.85"/>
+                        <ellipse cx="184" cy="164" rx="18" ry="13" fill="#ff9ebb" opacity="0.85"/>
+
+                        <!-- Happy Eyes (Normal & Cheerful Squint Toggleable) -->
+                        <g id="bubuEyesOpen">
+                            <!-- Cute Happy Arcs >< -->
+                            <path d="M75,140 L92,148 L75,156" fill="none" stroke="#3c1642" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M165,138 L148,146 L165,154" fill="none" stroke="#3c1642" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+
+                        <!-- Cute Cat-like Mouth :3 -->
+                        <path d="M108,154 Q114,160 120,154 Q126,160 132,154" fill="none" stroke="#3c1642" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M111,156 C111,182 129,182 129,156 Z" fill="#ff5d8f" stroke="#3c1642" stroke-width="3.5"/>
+                        <ellipse cx="120" cy="170" rx="6" ry="5" fill="#ff9ebb"/>
+
+                        <!-- Cute Brown Bowtie Collar -->
+                        <path d="M62,212 Q120,228 178,212" fill="none" stroke="#4a2511" stroke-width="6" stroke-linecap="round"/>
+                        <path d="M120,220 C105,208 98,225 112,234 C117,236 120,226 120,220 Z" fill="#4a2511" stroke="#3c1642" stroke-width="3"/>
+                        <path d="M120,220 C135,208 142,225 128,234 C123,236 120,226 120,220 Z" fill="#4a2511" stroke="#3c1642" stroke-width="3"/>
+                        <circle cx="120" cy="222" r="5" fill="#6f381a" stroke="#3c1642" stroke-width="2.5"/>
+
+                        <!-- Striped Party Hat -->
+                        <g transform="rotate(-10 105 70)">
+                            <polygon points="68,82 145,82 106,-10" fill="#ffd166" stroke="#3c1642" stroke-width="4" stroke-linejoin="round"/>
+                            <polygon points="76,62 137,62 129,43 84,43" fill="#7bdff2"/>
+                            <polygon points="88,33 125,33 117,14 96,14" fill="#ff758f"/>
+                            <path d="M68,82 L145,82 L106,-10 Z" fill="none" stroke="#3c1642" stroke-width="4" stroke-linejoin="round"/>
+                            <!-- Pom-Pom -->
+                            <circle cx="106" cy="-14" r="16" fill="#ff85a1" stroke="#3c1642" stroke-width="3.5"/>
+                            <circle cx="102" cy="-18" r="4" fill="#ffe5ec"/>
+                        </g>
+                    </g>
+                </g>
+
+                <!-- ================= DUDU (BROWN BEAR - RIGHT) ================= -->
+                <g class="dudu-bounce" id="duduBear" cursor="pointer">
+                    <g transform="translate(425, 115)">
+                        <!-- Round Brown Ears -->
+                        <circle cx="52" cy="94" r="24" fill="#c68b59" stroke="#3c1642" stroke-width="4"/>
+                        <circle cx="52" cy="94" r="12" fill="#8c5830"/>
+                        <circle cx="195" cy="98" r="24" fill="#c68b59" stroke="#3c1642" stroke-width="4"/>
+                        <circle cx="195" cy="98" r="12" fill="#8c5830"/>
+
+                        <!-- Body -->
+                        <path d="M64,210 C48,260 52,320 65,335 L185,335 C198,320 200,260 182,210 Z" fill="#c68b59" stroke="#3c1642" stroke-width="4"/>
+                        <!-- Cute Little Round Tail -->
+                        <circle cx="198" cy="300" r="14" fill="#c68b59" stroke="#3c1642" stroke-width="4"/>
+
+                        <!-- Big Chubby Brown Head -->
+                        <ellipse cx="122" cy="150" rx="92" ry="76" fill="#c68b59" stroke="#3c1642" stroke-width="4"/>
+
+                        <!-- Warm Peach Blush Cheeks -->
+                        <ellipse cx="56" cy="168" rx="18" ry="13" fill="#ff9f68" opacity="0.8"/>
+                        <ellipse cx="186" cy="170" rx="18" ry="13" fill="#ff9f68" opacity="0.8"/>
+
+                        <!-- Cute Dark Shiny Eyes -->
+                        <circle cx="84" cy="150" r="10" fill="#2b1204"/>
+                        <circle cx="81" cy="146" r="3.5" fill="#ffffff"/>
+                        <circle cx="160" cy="152" r="10" fill="#2b1204"/>
+                        <circle cx="157" cy="148" r="3.5" fill="#ffffff"/>
+
+                        <!-- Happy Little Mouth -->
+                        <path d="M110,155 Q116,161 122,155 Q128,161 134,155" fill="none" stroke="#2b1204" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M114,157 C114,178 130,178 130,157 Z" fill="#ff5d8f" stroke="#2b1204" stroke-width="3.5"/>
+
+                        <!-- Dudu Holding a Cute Cupcake with a Candle -->
+                        <g transform="translate(65, 198)">
+                            <!-- Cupcake Wrapper -->
+                            <polygon points="15,42 55,42 48,68 22,68" fill="#7bdff2" stroke="#3c1642" stroke-width="3.5" stroke-linejoin="round"/>
+                            <line x1="26" y1="42" x2="29" y2="68" stroke="#3c1642" stroke-width="2.5"/>
+                            <line x1="35" y1="42" x2="35" y2="68" stroke="#3c1642" stroke-width="2.5"/>
+                            <line x1="44" y1="42" x2="41" y2="68" stroke="#3c1642" stroke-width="2.5"/>
+                            <!-- Frosting -->
+                            <path d="M10,42 C5,26 22,22 25,26 C30,14 42,14 45,26 C52,22 65,26 58,42 Z" fill="#ff9ebb" stroke="#3c1642" stroke-width="3.5" stroke-linejoin="round"/>
+                            <!-- Mini Candle on Cupcake -->
+                            <rect x="31" y="4" width="8" height="16" rx="2" fill="#ffd166" stroke="#3c1642" stroke-width="3"/>
+                            <!-- Cupcake Candle Flame -->
+                            <g class="candle-flame flame-flicker">
+                                <path d="M35,-12 C42,-4 41,3 35,3 C29,3 28,-4 35,-12 Z" fill="#ff9f1c"/>
+                                <path d="M35,-7 C38,-2 38,2 35,2 C32,2 32,-2 35,-7 Z" fill="#fff3b0"/>
+                            </g>
+                        </g>
+
+                        <!-- Dudu's Paws Holding the Cupcake -->
+                        <path d="M65,228 C70,248 85,256 96,248 C105,240 92,222 76,218" fill="#c68b59" stroke="#3c1642" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M158,232 C142,250 120,256 112,246 C105,238 122,222 145,218" fill="#c68b59" stroke="#3c1642" stroke-width="4" stroke-linecap="round"/>
+
+                        <!-- Striped Party Hat -->
+                        <g transform="rotate(12 145 72)">
+                            <polygon points="105,82 182,82 144,-10" fill="#ff758f" stroke="#3c1642" stroke-width="4" stroke-linejoin="round"/>
+                            <polygon points="113,62 174,62 166,43 121,43" fill="#ffd166"/>
+                            <polygon points="125,33 162,33 154,14 133,14" fill="#7bdff2"/>
+                            <path d="M105,82 L182,82 L144,-10 Z" fill="none" stroke="#3c1642" stroke-width="4" stroke-linejoin="round"/>
+                            <!-- Star Topper -->
+                            <polygon points="144,-26 149,-15 161,-14 152,-6 155,6 144,0 133,6 136,-6 127,-14 139,-15" fill="#ffd166" stroke="#3c1642" stroke-width="3" stroke-linejoin="round"/>
+                        </g>
+                    </g>
+                </g>
+
+                <!-- ================= PARTY TABLE & GIFTS ================= -->
+                <!-- Table Top -->
+                <ellipse cx="400" cy="445" rx="285" ry="62" fill="#f3d5ff" stroke="#3c1642" stroke-width="4"/>
+                <ellipse cx="400" cy="438" rx="268" ry="50" fill="#fff0f6"/>
+
+                <!-- Left Extra Party Hat on Table -->
+                <g transform="translate(155, 365)">
+                    <ellipse cx="35" cy="68" rx="34" ry="11" fill="#7bdff2" stroke="#3c1642" stroke-width="3.5"/>
+                    <polygon points="10,66 60,66 35,4" fill="#cdb4db" stroke="#3c1642" stroke-width="3.5" stroke-linejoin="round"/>
+                    <polygon points="18,46 52,46 46,30 24,30" fill="#ffd166"/>
+                    <path d="M10,66 L60,66 L35,4 Z" fill="none" stroke="#3c1642" stroke-width="3.5" stroke-linejoin="round"/>
+                </g>
+
+                <!-- Right Extra Cupcake on Table -->
+                <g transform="translate(585, 382)">
+                    <polygon points="12,35 48,35 42,60 18,60" fill="#ffd166" stroke="#3c1642" stroke-width="3.5" stroke-linejoin="round"/>
+                    <path d="M8,35 C4,20 20,16 24,20 C28,10 38,10 40,20 C46,16 56,20 52,35 Z" fill="#ffffff" stroke="#3c1642" stroke-width="3.5"/>
+                    <circle cx="25" cy="24" r="2.5" fill="#ff758f"/>
+                    <circle cx="36" cy="21" r="2.5" fill="#7bdff2"/>
+                    <circle cx="31" cy="29" r="2.5" fill="#ffd166"/>
+                </g>
+
+                <!-- ================= 3-TIER BIRTHDAY CAKE ================= -->
+                <g transform="translate(300, 275)" id="birthdayCake" cursor="pointer">
+                    <!-- Cake Plate -->
+                    <ellipse cx="100" cy="166" rx="98" ry="22" fill="#ffffff" stroke="#3c1642" stroke-width="4"/>
+                    <ellipse cx="100" cy="163" rx="86" ry="16" fill="#e2cfea" stroke="#3c1642" stroke-width="2"/>
+
+                    <!-- Bottom Tier -->
+                    <path d="M24,112 L24,155 C24,170 176,170 176,155 L176,112 Z" fill="#ffd166" stroke="#3c1642" stroke-width="4"/>
+                    <ellipse cx="100" cy="112" rx="76" ry="15" fill="#ff9ebb" stroke="#3c1642" stroke-width="4"/>
+                    <!-- Bottom Tier Frosting Drips -->
+                    <path d="M24,114 Q38,136 52,118 Q68,140 84,120 Q100,142 116,120 Q132,140 148,118 Q162,136 176,114" fill="#ff9ebb" stroke="#3c1642" stroke-width="3.5"/>
+                    <!-- Bottom Bead Border -->
+                    <g fill="#7bdff2" stroke="#3c1642" stroke-width="2.5">
+                        <circle cx="36" cy="158" r="6"/><circle cx="52" cy="161" r="6"/><circle cx="68" cy="163" r="6"/>
+                        <circle cx="84" cy="164" r="6"/><circle cx="100" cy="165" r="6"/><circle cx="116" cy="164" r="6"/>
+                        <circle cx="132" cy="163" r="6"/><circle cx="148" cy="161" r="6"/><circle cx="164" cy="158" r="6"/>
+                    </g>
+
+                    <!-- Middle Tier -->
+                    <path d="M46,74 L46,110 C46,122 154,122 154,110 L154,74 Z" fill="#fff3b0" stroke="#3c1642" stroke-width="4"/>
+                    <ellipse cx="100" cy="74" rx="54" ry="11" fill="#7bdff2" stroke="#3c1642" stroke-width="4"/>
+                    <!-- Middle Tier Drips -->
+                    <path d="M46,76 Q60,94 74,80 Q88,96 100,80 Q112,96 126,80 Q140,94 154,76" fill="#7bdff2" stroke="#3c1642" stroke-width="3.5"/>
+
+                    <!-- Top Tier -->
+                    <path d="M68,42 L68,72 C68,80 132,80 132,72 L132,42 Z" fill="#ffd166" stroke="#3c1642" stroke-width="4"/>
+                    <ellipse cx="100" cy="42" rx="32" ry="8" fill="#ff9ebb" stroke="#3c1642" stroke-width="4"/>
+                    <path d="M68,44 Q78,58 88,46 Q100,60 112,46 Q122,58 132,44" fill="#ff9ebb" stroke="#3c1642" stroke-width="3"/>
+
+                    <!-- Main Center Candle -->
+                    <rect x="94" y="10" width="12" height="30" rx="3" fill="#ffffff" stroke="#3c1642" stroke-width="3.5"/>
+                    <line x1="94" y1="18" x2="106" y2="23" stroke="#ff758f" stroke-width="3"/>
+                    <line x1="94" y1="28" x2="106" y2="33" stroke="#7bdff2" stroke-width="3"/>
+
+                    <!-- Main Candle Flame (Toggleable on Blow) -->
+                    <g class="candle-flame flame-flicker" id="mainFlame">
+                        <circle cx="100" cy="-4" r="18" fill="#ffd166" opacity="0.35"/>
+                        <path d="M100,-20 C110,-8 109,4 100,4 C91,4 90,-8 100,-20 Z" fill="#ff9f1c" stroke="#3c1642" stroke-width="2.5"/>
+                        <path d="M100,-12 C104,-5 104,1 100,1 C96,1 96,-5 100,-12 Z" fill="#fff3b0"/>
+                    </g>
+
+                    <!-- Smoke Container (Hidden until blown) -->
+                    <g id="smokeGroup" class="hidden">
+                        <circle cx="100" cy="-5" r="5" fill="#d8cce2" class="smoke-particle"/>
+                        <circle cx="96" cy="-14" r="7" fill="#e5d9f2" class="smoke-particle" style="animation-delay: 0.15s"/>
+                        <circle cx="105" cy="-22" r="6" fill="#f3e8ff" class="smoke-particle" style="animation-delay: 0.3s"/>
+                    </g>
+
+                    <!-- Decorative Star Toppers on Cake -->
+                    <polygon points="75,20 78,26 85,27 80,31 81,38 75,34 69,38 70,31 65,27 72,26" fill="#ffd166" stroke="#3c1642" stroke-width="2.5"/>
+                    <polygon points="125,20 128,26 135,27 130,31 131,38 125,34 119,38 120,31 115,27 122,26" fill="#ffd166" stroke="#3c1642" stroke-width="2.5"/>
+                </g>
+
+                <!-- ================= FOREGROUND GIFT BOXES ================= -->
+                <!-- Left Mint & Pink Gift Box -->
+                <g transform="translate(15, 365)">
+                    <rect x="0" y="30" width="95" height="82" rx="6" fill="#80ed99" stroke="#3c1642" stroke-width="4"/>
+                    <rect x="-6" y="15" width="107" height="22" rx="5" fill="#a8f9bd" stroke="#3c1642" stroke-width="4"/>
+                    <rect x="38" y="15" width="19" height="97" fill="#ff758f" stroke="#3c1642" stroke-width="3.5"/>
+                    <!-- Ribbon Bow -->
+                    <path d="M47,15 C22,-12 5,8 32,16 Z" fill="#ff758f" stroke="#3c1642" stroke-width="3.5"/>
+                    <path d="M47,15 C72,-12 89,8 62,16 Z" fill="#ff758f" stroke="#3c1642" stroke-width="3.5"/>
+                </g>
+
+                <!-- Left Front Pink Polka Gift Box -->
+                <g transform="translate(50, 435)">
+                    <rect x="0" y="25" width="90" height="75" rx="6" fill="#ff85a1" stroke="#3c1642" stroke-width="4"/>
+                    <rect x="-5" y="12" width="100" height="19" rx="5" fill="#ff9ebb" stroke="#3c1642" stroke-width="4"/>
+                    <rect x="36" y="12" width="18" height="88" fill="#7bdff2" stroke="#3c1642" stroke-width="3.5"/>
+                    <path d="M45,12 C22,-12 8,6 32,13 Z" fill="#7bdff2" stroke="#3c1642" stroke-width="3.5"/>
+                    <path d="M45,12 C68,-12 82,6 58,13 Z" fill="#7bdff2" stroke="#3c1642" stroke-width="3.5"/>
+                </g>
+
+                <!-- Right Mint & Blue Gift Box -->
+                <g transform="translate(685, 365)">
+                    <rect x="0" y="30" width="95" height="82" rx="6" fill="#ff9ebb" stroke="#3c1642" stroke-width="4"/>
+                    <rect x="-6" y="15" width="107" height="22" rx="5" fill="#ffb3c6" stroke="#3c1642" stroke-width="4"/>
+                    <rect x="38" y="15" width="19" height="97" fill="#7bdff2" stroke="#3c1642" stroke-width="3.5"/>
+                    <path d="M47,15 C22,-12 5,8 32,16 Z" fill="#7bdff2" stroke="#3c1642" stroke-width="3.5"/>
+                    <path d="M47,15 C72,-12 89,8 62,16 Z" fill="#7bdff2" stroke="#3c1642" stroke-width="3.5"/>
+                </g>
+
+                <!-- Right Front Golden Gift Box -->
+                <g transform="translate(650, 435)">
+                    <rect x="0" y="25" width="90" height="75" rx="6" fill="#ffd166" stroke="#3c1642" stroke-width="4"/>
+                    <rect x="-5" y="12" width="100" height="19" rx="5" fill="#ffe08c" stroke="#3c1642" stroke-width="4"/>
+                    <rect x="36" y="12" width="18" height="88" fill="#ff9f1c" stroke="#3c1642" stroke-width="3.5"/>
+                    <path d="M45,12 C22,-12 8,6 32,13 Z" fill="#ff9f1c" stroke="#3c1642" stroke-width="3.5"/>
+                    <path d="M45,12 C68,-12 82,6 58,13 Z" fill="#ff9f1c" stroke="#3c1642" stroke-width="3.5"/>
+                </g>
+            </svg>
+        </div>
+
+        <!-- 24 HOURS LEFT! Live Countdown Ribbon Banner -->
+        <div class="relative z-30 -mt-6 sm:-mt-10 mb-4 flex flex-col items-center">
+            <div class="ribbon-banner rounded-3xl px-6 sm:px-10 py-3 sm:py-4 transform hover:scale-105 transition-transform duration-300">
+                <div class="text-xs sm:text-sm font-bold uppercase tracking-widest text-purple-950 mb-0.5">
+                    ✨ Countdown to Your Special Day ✨
+                </div>
+                <div class="countdown-digits text-2xl sm:text-4xl md:text-5xl font-extrabold text-yellow-200 tracking-wider">
+                    24 HOURS LEFT!
+                </div>
+                <!-- Live Ticking Timer Sub-pill -->
+                <div class="mt-2 inline-flex items-center gap-2 bg-purple-950/85 text-pink-200 px-4 py-1.5 rounded-full border-2 border-pink-300/50 shadow-inner">
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-400 animate-ping"></span>
+                    <span class="font-mono font-bold text-sm sm:text-lg tracking-widest text-white" id="liveTimer">
+                        23:59:59
+                    </span>
+                    <span class="text-xs text-pink-300 uppercase font-semibold">remaining</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Control Buttons -->
+        <div class="relative z-30 flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-1 mb-2">
+            <button id="celebrateBtn" class="party-btn text-purple-950 font-extrabold text-base sm:text-xl px-6 sm:px-8 py-3 rounded-2xl flex items-center gap-2 cursor-pointer">
+                <span id="btnIcon">🕯️</span>
+                <span id="btnText">Blow Candle & Celebrate!</span>
+            </button>
+
+            <button id="loveNoteBtn" class="secondary-btn text-white font-bold text-base sm:text-lg px-5 py-3 rounded-2xl flex items-center gap-2 cursor-pointer">
+                <span>💌</span>
+                <span>Open Fiancé Note</span>
+            </button>
+        </div>
+
+        <p class="text-xs sm:text-sm text-pink-200/80 font-medium mt-1">
+            💡 Tip: Tap on Dudu, Bubu, or the Birthday Cake for cute reactions!
+        </p>
+    </main>
+
+    <!-- Cute Pop-up Modal for Sweet Fiancé Birthday Message -->
+    <div id="messageModal" class="fixed inset-0 bg-black/65 backdrop-blur-sm z-50 hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-gradient-to-b from-pink-100 via-white to-purple-100 border-4 border-[#3c1642] rounded-3xl max-w-md w-full p-6 sm:p-8 text-center shadow-[0_12px_0_#3c1642] transform scale-95 transition-transform duration-300" id="modalCard">
+            <div class="text-5xl mb-3 animate-bounce">🐻‍❄️🎂🐻</div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-[#3c1642]" style="font-family: var(--font-bubbly);">
+                Happy Early Birthday, My Love!
+            </h2>
+            <p class="text-purple-900 font-semibold mt-3 text-base sm:text-lg leading-relaxed">
+                Just <span class="text-pink-600 font-extrabold underline">24 hours left</span> until we celebrate the most wonderful person in my world! Just like Bubu & Dudu, every single moment with you is my favorite adventure. 💖✨
+            </p>
+            <div class="mt-5 p-3 bg-pink-200/60 rounded-2xl border-2 border-pink-300 text-sm font-bold text-purple-950">
+                "May all your birthday wishes come true, my dearest fiancé!" 🥂💍
+            </div>
+            <button id="closeModalBtn" class="party-btn mt-6 w-full py-3 rounded-xl text-purple-950 font-extrabold text-lg cursor-pointer">
+                Yay! Send Hugs & Kisses 💕
+            </button>
+        </div>
+    </div>
+
+    <script>
+        /* =========================================================================
+           1. LIVE 24-HOUR COUNTDOWN TIMER
+           ========================================================================= */
+        const timerDisplay = document.getElementById('liveTimer');
+        // Set target time to exactly 24 hours from page load
+        let remainingSeconds = 24 * 60 * 60;
+
+        function updateCountdown() {
+            if (remainingSeconds > 0) {
+                remainingSeconds--;
+            } else {
+                remainingSeconds = 24 * 60 * 60; // Loop gently if finished
+            }
+
+            const hrs = String(Math.floor(remainingSeconds / 3600)).padStart(2, '0');
+            const mins = String(Math.floor((remainingSeconds % 3600) / 60)).padStart(2, '0');
+            const secs = String(remainingSeconds % 60).padStart(2, '0');
+
+            timerDisplay.textContent = `${hrs}h : ${mins}m : ${secs}s`;
+        }
+
+        // Start ticking immediately
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        /* =========================================================================
+           2. CANVAS CONFETTI ENGINE (AMBIENT + CELEBRATION BURST)
+           ========================================================================= */
+        const canvas = document.getElementById('confettiCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const colors = ['#ff758f', '#ffd166', '#7bdff2', '#b8f2e6', '#cdb4db', '#ff9ebb', '#80ed99'];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function createParticle(isBurst = false, originX = null, originY = null) {
+            const x = originX !== null ? originX : Math.random() * canvas.width;
+            const y = originY !== null ? originY : (isBurst ? canvas.height * 0.55 : -20);
+            return {
+                x: x,
+                y: y,
+                size: Math.random() * 8 + 5,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                speedX: isBurst ? (Math.random() - 0.5) * 16 : (Math.random() - 0.5) * 1.8,
+                speedY: isBurst ? (Math.random() * -16 - 4) : (Math.random() * 2 + 1),
+                gravity: isBurst ? 0.32 : 0.02,
+                rotation: Math.random() * 360,
+                rotationSpeed: (Math.random() - 0.5) * 8,
+                shape: Math.random() > 0.35 ? 'rect' : 'circle',
+                isBurst: isBurst,
+                opacity: 1
+            };
+        }
+
+        // Initialize gentle continuous confetti
+        for (let i = 0; i < 55; i++) {
+            const p = createParticle(false);
+            p.y = Math.random() * canvas.height;
+            particles.push(p);
+        }
+
+        function triggerConfettiBurst(x = canvas.width / 2, y = canvas.height * 0.55, count = 90) {
+            for (let i = 0; i < count; i++) {
+                particles.push(createParticle(true, x, y));
+            }
+        }
+
+        function animateConfetti() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.x += p.speedX;
+                p.y += p.speedY;
+                p.rotation += p.rotationSpeed;
+
+                if (p.isBurst) {
+                    p.speedY += p.gravity;
+                    p.opacity -= 0.008;
+                } else {
+                    // Gentle sway for ambient confetti
+                    p.x += Math.sin(p.y * 0.02) * 0.5;
+                }
+
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.rotate((p.rotation * Math.PI) / 180);
+                ctx.globalAlpha = Math.max(0, p.opacity);
+                ctx.fillStyle = p.color;
+
+                if (p.shape === 'rect') {
+                    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+                } else {
+                    ctx.beginPath();
+                    ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                ctx.restore();
+
+                // Recycle ambient particles or remove finished burst particles
+                if (p.isBurst) {
+                    if (p.opacity <= 0 || p.y > canvas.height + 40) {
+                        particles.splice(i, 1);
+                    }
+                } else if (p.y > canvas.height + 20) {
+                    p.y = -15;
+                    p.x = Math.random() * canvas.width;
+                }
+            }
+
+            requestAnimationFrame(animateConfetti);
+        }
+
+        /* =========================================================================
+           3. FLOATING HEARTS & MUSICAL NOTES SPAWNER
+           ========================================================================= */
+        function spawnFloatingEmojis(centerX, centerY, count = 12) {
+            const emojis = ['💖', '🎵', '🎶', '🥳', '✨', '💕', '🎉', '🧁'];
+            for (let i = 0; i < count; i++) {
+                const el = document.createElement('div');
+                el.className = 'floating-emoji text-2xl sm:text-3xl';
+                el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                const offsetX = (Math.random() - 0.5) * 220;
+                const offsetY = (Math.random() - 0.5) * 60;
+                el.style.left = `${centerX + offsetX}px`;
+                el.style.top = `${centerY + offsetY}px`;
+                el.style.animationDelay = `${Math.random() * 0.35}s`;
+                document.body.appendChild(el);
+
+                setTimeout(() => {
+                    el.remove();
+                }, 2700);
+            }
+        }
+
+        /* =========================================================================
+           4. SYNTHESIZED BIRTHDAY MELODY (TONE.JS)
+           ========================================================================= */
+        let isPlayingMusic = false;
+
+        async function playBirthdayChime() {
+            if (isPlayingMusic || typeof Tone === 'undefined') return;
+            try {
+                isPlayingMusic = true;
+                await Tone.start();
+                const synth = new Tone.PolySynth(Tone.Synth, {
+                    oscillator: { type: 'triangle' },
+                    envelope: { attack: 0.02, decay: 0.2, sustain: 0.2, release: 0.6 }
+                }).toDestination();
+                synth.volume.value = -8;
+
+                const now = Tone.now();
+                // Short cheerful "Happy Birthday" opening phrase
+                const notes = [
+                    { note: 'C5', time: 0, dur: '8n' },
+                    { note: 'C5', time: 0.22, dur: '8n' },
+                    { note: 'D5', time: 0.45, dur: '4n' },
+                    { note: 'C5', time: 0.85, dur: '4n' },
+                    { note: 'F5', time: 1.25, dur: '4n' },
+                    { note: 'E5', time: 1.65, dur: '2n' }
+                ];
+
+                notes.forEach(n => {
+                    synth.triggerAttackRelease(n.note, n.dur, now + n.time);
+                });
+
+                setTimeout(() => {
+                    isPlayingMusic = false;
+                }, 2400);
+            } catch (e) {
+                isPlayingMusic = false;
+            }
+        }
+
+        /* =========================================================================
+           5. INTERACTIVE CONTROLS (BLOW CANDLE, MODAL, BEAR TAPS)
+           ========================================================================= */
+        const celebrateBtn = document.getElementById('celebrateBtn');
+        const btnIcon = document.getElementById('btnIcon');
+        const btnText = document.getElementById('btnText');
+        const smokeGroup = document.getElementById('smokeGroup');
+        const flames = document.querySelectorAll('.candle-flame');
+
+        const messageModal = document.getElementById('messageModal');
+        const modalCard = document.getElementById('modalCard');
+        const loveNoteBtn = document.getElementById('loveNoteBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        let candleLit = true;
+
+        function openModal() {
+            messageModal.classList.remove('hidden');
+            messageModal.classList.add('flex');
+            setTimeout(() => {
+                messageModal.classList.remove('opacity-0');
+                modalCard.classList.remove('scale-95');
+                modalCard.classList.add('scale-100');
+            }, 20);
+        }
+
+        function closeModal() {
+            messageModal.classList.add('opacity-0');
+            modalCard.classList.remove('scale-100');
+            modalCard.classList.add('scale-95');
+            setTimeout(() => {
+                messageModal.classList.remove('flex');
+                messageModal.classList.add('hidden');
+            }, 300);
+        }
+
+        function handleCelebrateClick() {
+            const rect = celebrateBtn.getBoundingClientRect();
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight * 0.5;
+
+            if (candleLit) {
+                // Blow out the candles
+                candleLit = false;
+                flames.forEach(f => f.classList.add('hidden'));
+                smokeGroup.classList.remove('hidden');
+
+                btnIcon.textContent = '✨';
+                btnText.textContent = 'Relight Candles & Cheer!';
+
+                triggerConfettiBurst(centerX, centerY, 110);
+                spawnFloatingEmojis(centerX, centerY, 16);
+                playBirthdayChime();
+
+                // Show sweet pop-up note automatically a moment after blowing out the candle
+                setTimeout(openModal, 900);
+            } else {
+                // Relight the candles
+                candleLit = true;
+                flames.forEach(f => f.classList.remove('hidden'));
+                smokeGroup.classList.add('hidden');
+
+                btnIcon.textContent = '🕯️';
+                btnText.textContent = 'Blow Candle & Celebrate!';
+
+                triggerConfettiBurst(centerX, centerY, 60);
+                spawnFloatingEmojis(centerX, centerY, 10);
+            }
+        }
+
+        celebrateBtn.addEventListener('click', handleCelebrateClick);
+        loveNoteBtn.addEventListener('click', () => {
+            triggerConfettiBurst(window.innerWidth / 2, window.innerHeight / 2, 50);
+            openModal();
+        });
+        closeModalBtn.addEventListener('click', () => {
+            closeModal();
+            triggerConfettiBurst(window.innerWidth / 2, window.innerHeight * 0.5, 65);
+        });
+        messageModal.addEventListener('click', (e) => {
+            if (e.target === messageModal) closeModal();
+        });
+
+        // Cute Interactive Clicks on Bubu, Dudu, and the Cake
+        document.getElementById('bubuBear').addEventListener('click', (e) => {
+            triggerConfettiBurst(e.clientX, e.clientY, 45);
+            spawnFloatingEmojis(e.clientX, e.clientY, 8);
+            playBirthdayChime();
+        });
+
+        document.getElementById('duduBear').addEventListener('click', (e) => {
+            triggerConfettiBurst(e.clientX, e.clientY, 45);
+            spawnFloatingEmojis(e.clientX, e.clientY, 8);
+            playBirthdayChime();
+        });
+
+        document.getElementById('birthdayCake').addEventListener('click', () => {
+            handleCelebrateClick();
+        });
+
+        // Start animation loop on window load
+        window.onload = function () {
+            animateConfetti();
+        };
+    </script>
+</body>
+</html>
